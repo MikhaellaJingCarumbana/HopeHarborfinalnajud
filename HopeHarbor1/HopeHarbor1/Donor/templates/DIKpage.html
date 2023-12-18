@@ -1,0 +1,349 @@
+{% load static %}
+<html lang="en" xmlns:margin-bottom="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="{%static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/css/Archivo.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/css/Montserrat.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="{%static 'assets/css/vanilla-zoom.min.css' %}">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .formbold-mb-3 {
+    margin-bottom: 15px;
+  }
+  .formbold-relative {
+    position: relative;
+  }
+  .formbold-opacity-0 {
+    opacity: 0;
+  }
+  .formbold-stroke-current {
+    stroke: currentColor;
+  }
+  #supportCheckbox:checked ~ div span {
+    opacity: 1;
+  }
+
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+  }
+
+  .formbold-img {
+    margin-bottom: 45px;
+  }
+
+  .formbold-form-title {
+    margin-bottom: 30px;
+  }
+  .formbold-form-title h2 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #07074d;
+  }
+  .formbold-form-title p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+    margin-top: 12px;
+  }
+
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+  }
+  .formbold-form-input {
+    text-align: left;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+
+  .formbold-form-input-int {
+    text-align: center;
+    width: 20%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+
+  .formbold-form-input-int:focus {
+    border-color: #0D6EFD;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .formbold-form-input:focus {
+    border-color: #0D6EFD;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  .formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .formbold-checkbox-label {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+  }
+  .formbold-checkbox-label a {
+    margin-left: 5px;
+    color: #6a64f1;
+  }
+  .formbold-input-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .formbold-checkbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-top: 2px;
+    border: 0.7px solid #dde3ec;
+    border-radius: 3px;
+  }
+
+  .formbold-btn {
+    appearance: button;
+  backface-visibility: hidden;
+  background-color: #0D6EFD;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar" style="background: #002156;">
+        <div class="container"><a class="navbar-brand logo" href="#" style="font-family: Archivo, sans-serif;color: rgba(255,255,255,0.9);font-weight: bold;">HopeHarbor</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'donor:DiK' %}" style="color: rgba(255,255,255,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html" style="color: rgb(255,255,255);">donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html" style="color: rgb(255,255,255);">About Us</a></li>
+<!--                    <li class="nav-item"><a class="nav-link" href="contact-us.html" style="color: rgb(255,255,255);">register</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<main class="page landing-page">
+
+<!--    <section class="clean-block clean-hero" style="color: rgba(9,162,255,0);background: url(&quot;{% static 'assets/img/tech/9548273.jpg' %}&quot;);">-->
+<!--            <div class="text">-->
+<!--                <h2 style="font-family: Archivo, sans-serif;font-size: 80px;font-weight: bold;">HopeHarbor</h2>-->
+<!--                <p style="font-family: Archivo, sans-serif;">We're here to support you on your journey to a brighter future. Explore the resources and assistance we offer, and know that we're here for you every step of the way. Together, we'll navigate toward a better tomorrow.</p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button>-->
+<!--            </div>-->
+<!--    </section>-->
+
+<!--    <section class="clean-block clean-info dark">-->
+<!--            <div class="container">-->
+<!--                <div class="block-heading">-->
+<!--                    <h2 class="text-info" style="font-family: Archivo, sans-serif;">Donation in Kind Form</h2>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--    </section>-->
+
+  <div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+
+    <form method="post">
+        {% csrf_token %}
+      <div class="formbold-form-title">
+        <h2 class="">Donation in Kind</h2>
+        <p>
+          Please enter the quantity and name of the item that you would like to
+          donate.
+        </p>
+      </div>
+
+      <div>
+          <label for="firstname" class="formbold-form-label">
+            Quantity
+          </label>
+          <input
+            type="number"
+            name="quantity"
+            id="firstname"
+            class="formbold-form-input-int"
+          />
+      </div>
+
+      <br>
+
+      <div class="formbold-mb-3">
+        <label for="address" class="formbold-form-label">
+          Label
+        </label>
+        <input
+          type="text"
+          name="label"
+          id="address"
+          class="formbold-form-input"
+        />
+      </div>
+
+      <br>
+
+        <div>
+            <input
+              type="checkbox"
+              id="isitperishable"
+              name="perishable"
+            />
+      <label for="isitperishable">Is it perishable?<label>
+        </div>
+
+      <br>
+        <br>
+
+      <div class="formbold-mb-3">
+        <label for="expiry" class="formbold-form-label">
+          Expiration Date
+        </label>
+        <input
+          type="date"
+          name="expiry"
+          id="expiry"
+          class="formbold-form-input"
+        />
+      </div>
+
+      <button class="formbold-btn">Donate</button>
+    </form>
+      {{ msg }}
+  </div>
+</div>
+
+     </main>
+
+<footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright"></div>
+    </footer><!-- End: Footer Dark -->
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="{% static 'assets/js/vanilla-zoom.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+
+</body>
+</html>
