@@ -1,0 +1,185 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap1.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Archivo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Montserrat.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="{% static 'css/vanilla-zoom.min.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar" style="background: #002156;">
+        <div class="container"><a class="navbar-brand logo" href="#" style="font-family: Archivo, sans-serif;color: rgba(255,255,255,0.9);font-weight: bold;">HopeHarbor</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/Beneficiary%20page.html" style="color: rgba(255,255,255,0.9);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html" style="color: rgb(255,255,255);">donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html" style="color: rgb(255,255,255);">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Beneficiary:log' %}" style="color: rgb(255, 255, 255);">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="color: rgba(9,162,255,0);background: url('{% static "img/tech/9548273.jpg" %}');">
+            <div class="text">
+                <!-- Displaying the data for the logged-in user -->
+                <h2 data-aos="fade-up" style="font-family: Archivo, sans-serif;font-size: 8.5vw;font-weight: bold;">HopeHarbor</h2>
+                <p data-aos="fade-up" style="font-family: Archivo, sans-serif;">We're here to support you on your journey to a brighter future. Explore the resources and assistance we offer, and know that we're here for you every step of the way. Together, we'll navigate toward a better tomorrow.</p>
+            </div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div style="height: 44px;"></div>
+                <!-- Displaying the data for the logged-in user -->
+                <h1 style="font-weight: bold;color: rgb(59,153,224);text-align: center;font-size: 38px;">
+                    Welcome back, {{ beneficiary.FirstName }}!
+                </h1>
+            </div><!-- Start: Features Cards -->
+            <div class="container py-4 py-xl-5">
+                <div class="row mb-5" style="text-align: left;">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                        <div style="height: 19px;"></div>
+                        <!-- Displaying the data for the logged-in user -->
+                        <p data-aos="fade-up" style="font-weight: bold;font-size: 27px;">
+                            {{ beneficiary.Org }}
+                        </p>
+                        <!-- Displaying the data for the logged-in user -->
+                        <p data-aos="fade-up">
+                            {% with address=beneficiary.Address %}
+                                {{ address.house_number }}, {{ address.street }}, {{ address.barangay }},
+                                {{ address.city }}, {{ address.state }}
+                            {% endwith %}
+                        </p>
+                        <!-- Displaying the data for the logged-in user -->
+                        <p data-aos="fade-up">
+                            Representative Name: {{ beneficiary.FirstName }} {{ beneficiary.LastName }}
+                        </p>
+                    </div>
+                </div>
+                <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" data-aos="fade-up">
+                    <div class="col" data-aos="fade-up">
+                        <div class="card" style="border-radius: 25px;">
+                            <div class="card-body p-4" style="border-radius: 49px;">
+                                <!-- Fetching the funds raised from the donor_amount_tracker model -->
+                                {% if beneficiary.AmountTrackerID %}
+    <h4 class="card-title" style="font-family: Archivo, sans-serif; font-weight: bold; font-size: 40px;">
+        ₱ {{ total_amount|floatformat:2|intcomma }}<br>
+    </h4>
+    <p class="card-text" style="font-size: 19px;">Funds raised</p>
+{% else %}
+    <h4 class="card-title" style="font-family: Archivo, sans-serif; font-weight: bold; font-size: 40px;">
+        ₱ 0<br>
+    </h4>
+    <p class="card-text" style="font-size: 19px;">No funds raised yet</p>
+{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up">
+                        <div class="card" style="border-radius: 25px;">
+                            <div class="card-body p-4" style="border-radius: 25px;">
+                                <!-- Displaying the data for the logged-in user -->
+                                <h4 class="card-title" style="font-weight: bold;font-family: Archivo, sans-serif;font-size: 40px;">
+                                    {{ beneficiary.Needs }}
+                                </h4>
+                                <p class="card-text" style="font-size: 19px;">Needs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up">
+                        <div class="card" style="border-radius: 25px;">
+                            <div class="card-body p-4">
+                                {% if beneficiary.GoodsTrackerID %}
+                <h4 class="card-title" style="font-family: Archivo, sans-serif;font-weight: bold;font-size: 40px;">
+                    {{ total_quantity }}<br>
+                </h4>
+                <p class="card-text" style="font-size: 19px;">Total Goods Received</p>
+            {% else %}
+                <h4 class="card-title" style="font-family: Archivo, sans-serif;font-weight: bold;font-size: 44px;">
+                    0<br>
+                </h4>
+                <p class="card-text" style="font-size: 19px;">No goods received yet</p>
+            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End: Features Cards -->
+        </section>
+       <section class="clean-block slider dark">
+    <div class="container">
+        <div style="height: 58px;"></div>
+        <h2 class="text-info" data-aos="fade-up" style="font-family: Archivo, sans-serif;font-weight: bold;font-size: 35px;text-align: left;">Goods Tracker</h2>
+        <div style="height: 33px;"></div>
+    </div>
+    <div class="container" data-aos="fade-up">
+        <div class="table-responsive" style="border-color: rgb(128,128,128);">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Donation In Kind</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in goods_tracker_data %}
+                        <tr>
+                            <td>{{ item.GoodsTrackerID }}</td>
+                            <td>{{ item.DonationInKind }}</td>
+                            <td>{{ item.Quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+        <section class="clean-block slider dark">
+            <div class="container">
+    <div style="height: 58px;"></div>
+    <h2 class="text-info" data-aos="fade-up" style="font-family: Archivo, sans-serif;font-weight: bold;font-size: 35px;text-align: left;">Amount Tracker</h2>
+    <div style="height: 33px;"></div>
+</div>
+<div class="container" data-aos="fade-up">
+    <div class="table-responsive" style="border-color: rgb(128,128,128);">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donation in amount_tracker_data %}
+                    <tr>
+                        <td>{{ donation.Amount_TrackerID }}</td>
+                        <td>₱ {{ donation.Amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+        </section>
+    </main><!-- Start: Footer Dark -->
+    <footer class="page-footer dark" style="background: rgb(0,33,86);"></footer><!-- End: Footer Dark -->
+    <script src="{% static 'bootstrap/js/bootstrap1.min.js' %}"></script>
+    <script src="{% static 'js/aos.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="{% static 'js/vanilla-zoom.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+
+</html>
